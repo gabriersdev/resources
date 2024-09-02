@@ -1,16 +1,8 @@
 "use strict";
 
 (() => {
-  const resources = {
-    'resume': 'https://drive.google.com/file/d/1YxNVMs6_fc5RJZMHcHdJgrN1pxigx9Cu/view/',
-    'portfolio': 'https://gabriersdev.github.io/portfolio/',
-    'linkedin': 'https://www.linkedin.com/in/gabrielribeirodev/',
-    'github-profile': 'https://github.com/gabriersdev/',
-    'gist-profile': 'https://gist.github.com/gabriersdev/',
-  }
-
-  class Alert{
-    #title; 
+  class Alert {
+    #title;
     #text;
     #btnLabel;
     #btnAction;
@@ -39,7 +31,7 @@
             <br>
             <p class="label-texto-pagina-centralizado">${this.#text}</p>
             <br>
-            ${ this.#btnLabel ? '<button data-action-pagina class="btn-principal" id="acao-pagina" name="acao-pagina">${this.#btnLabel}</button>' : '' }
+            ${this.#btnLabel ? '<button data-action-pagina class="btn-principal" id="acao-pagina" name="acao-pagina">${this.#btnLabel}</button>' : ''}
           </div>
         </div>
       </div>`
@@ -56,13 +48,23 @@
     }
   }
 
+  let resources = new Object();
 
-  const params = new URL(window.location).searchParams
-  if (params.has('resource') && params.get('resource').toLowerCase() in resources) {
-    window.location.replace(resources[params.get('resource')])
-  } else if (params.has('resource') && !(params.get('resource').toLowerCase() in resources)) {
-    new Alert('There is no action for the reported resource!', 'Redirecting to github.io/gabriersdev...', null, () => { window.location.href = 'https://www.github.com/gabriersdev' }).render()
-  } else {
-    new Alert('Valid parameter not provided!', 'Redirecting to github.io/gabriersdev...', null, () => { window.location.href = 'https://www.github.com/gabriersdev' }).render()
-  }
+  fetch('./data.json').then((res) => res.json())
+    .then((ret) => {
+      resources = ret
+
+      const params = new URL(window.location).searchParams
+      if (params.has('resource') && params.get('resource').toLowerCase() in resources) {
+        window.location.href = resources[params.get('resource')]
+      } else if (params.has('resource') && !(params.get('resource').toLowerCase() in resources)) {
+        new Alert('There is no action for the reported resource!', 'Redirecting to github.io/gabriersdev...', null, () => { window.location.href = 'https://www.github.com/gabriersdev' }).render()
+      } else {
+        new Alert('Valid parameter not provided!', 'Redirecting to github.io/gabriersdev...', null, () => { window.location.href = 'https://www.github.com/gabriersdev' }).render()
+      }
+    })
+    .catch((err) => {
+      alert('An error occurred while trying to fetch the data.json file!')
+      console.error(err)
+    })
 })();
