@@ -1,8 +1,11 @@
 {
-  "resume": "./docs/GABRIEL-RIBEIRO-curriculo.pdf",
   "portfolio": "https://gabriersdev.github.io/portfolio/",
+  "portfolio-br": "https://dev.lts.app.br/",
   "linkedin": "https://www.linkedin.com/in/gabrielmpribeiro/",
   "github-profile": "https://github.com/gabriersdev/",
   "gist-profile": "https://gist.github.com/gabriersdev/",
-  "lotus": "https://lotus-media-website.vercel.app/"
+  "lotus": "https://lotus-media-website.vercel.app/",
+  "resume": "./docs/GABRIEL-RIBEIRO-curriculo.pdf",
+  "IFI": "./docs/GABRIEL-RIBEIRO-certificado-IFI.pdf",
+  "ADS": "./docs/GABRIEL-RIBEIRO-certificado-ADS.pdf"
 }
