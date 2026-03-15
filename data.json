@@ -4,8 +4,9 @@
   "linkedin": "https://www.linkedin.com/in/gabrielmpribeiro/",
   "github-profile": "https://github.com/gabriersdev/",
   "gist-profile": "https://gist.github.com/gabriersdev/",
-  "lotus": "https://lotus-media-website.vercel.app/",
+  "lotus": "https://lts.app.br/",
   "resume": "./docs/GABRIEL-RIBEIRO-curriculo.pdf",
-  "IFI": "./docs/GABRIEL-RIBEIRO-certificado-IFI.pdf",
-  "ADS": "./docs/GABRIEL-RIBEIRO-certificado-ADS.pdf"
+  "curriculo": "./docs/GABRIEL-RIBEIRO-curriculo.pdf",
+  "certificado-ifi": "./docs/GABRIEL-RIBEIRO-certificado-IFI.pdf",
+  "certificado-ads": "./docs/GABRIEL-RIBEIRO-certificado-ADS.pdf"
 }
